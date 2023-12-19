@@ -12,7 +12,7 @@ $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 $con= mysqli_connect("localhost","root","","kaomunkai") or die("Error: " . mysqli_error($con));
 mysqli_query($con, "SET NAMES 'utf8' "); 
 
-echo "Connected successfully kaomunkai";
+// echo "Connected successfully kaomunkai";
 
 
 ?>
