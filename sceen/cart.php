@@ -39,13 +39,13 @@ if ($act == 'update') {
 <body class="bg-[#373640]">
     <!-- <div class="container  "> -->
 
-    <div class=" top-0 z-40 flex w-screen flex-row justify-between py-3 text-white">
+    <div class=" top-0 z-40 flex w-screen flex-row justify-between py-3 text-[#B6F7C1]">
         <a href="menu.php">
             <svg id="navOpen" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-8 w-8">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 17.25l-6-6 6-6" />
             </svg>
         </a>
-        <p class=" text-center">ออเดอร์ของฉัน</p>
+        <p class=" text-center text-2xl text-[#B6F7C1]">ออเดอร์ของฉัน</p>
         <p class=" text-center"></p>
     </div>
 
@@ -58,18 +58,16 @@ if ($act == 'update') {
             $sql = "select * from menu where menu_id=$menu_id";
             $query = mysqli_query($con, $sql);
             $row = mysqli_fetch_array($query);
-            $sum = floatval($row['menu_price']) * floatval($qty);
+            $sum = floatval($row['price']) * floatval($qty);
             $total += $sum;
     ?>
             <div class="py-2">
                 <div class="flex bg-white mx-auto rounded-lg w-[400px] h-[150px] " id="menu_<?php echo $menu_id; ?>">
                     <img class="w-[150px] h-[150px]" src="../images/ข้าวมันไก่.jpg" alt="">
-
-
                     <div class="card-body d-flex ">
                         <a class='btn btn-danger text-red-600 ml-48' href='cart.php?menu_id=<?php echo $menu_id; ?>&act=remove'>ยกเลิก</a>
                         <h5 class="card-title"><?php echo $row["menu_name"]; ?></h5>
-                        <p class="card-text text-[#B6F7C1]">ราคา : <?php echo number_format($row["menu_price"], 2); ?></p>
+                        <p class="card-text text-[#B6F7C1]">ราคา : <?php echo number_format($row["price"], 2); ?></p>
                         <p class="card-text">จำนวนจาน:
                             <input type='text' class='form-control' name='amount[<?php echo $menu_id; ?>]' value='<?php echo $qty; ?>' size='2' />
                         </p>
@@ -78,10 +76,6 @@ if ($act == 'update') {
                     </div>
 
                 </div>
-
-                <!-- echo "<td colspan='3' align='center'><b>ราคารวม</b></td>";
-                        echo "<td align='right'>" . "<b>" . number_format($total, 2) . "</b>" . "</td>"; -->
-
             </div>
 
 
@@ -89,22 +83,34 @@ if ($act == 'update') {
         }
     }
     ?>
+    <p class=" text-white text-center mt-5 text-2xl"><?php echo "<td colspan='3' align='center'><b>ราคารวม</b></td>"; ?>
+        <?php echo "<td align='right'>" . "<b>" . number_format($total, 2) . "</b>" . "</td>"; ?>
+    </p>
 
-
-    <div class=" bg-[#B6F7C1] w-screen h-[150px] mt-10">
-    <tfoot>
-                    <tr>
-                        <td>
-                            <!-- <a href="user_page.php">กลับหน้ารายการสินค้า</a> -->
-                        </td>
-                        <td colspan="4" align="right">
-                            <input type="submit" class="btn btn-primary" name="button" id="button" value="อัพเดต" />
-                            <input type="button" class="btn btn-success" name="Submit2" value="สั่งซื้ออาหาร" onclick="window.location='confirm.php';" />
-                        </td>
-                    </tr>
-                </tfoot>
-
+    <div class=" mx-auto text-center mt-4">
+        <button class="bg-green-500 hover:bg-green-500 text-white font-bold py-2  border-b-4 border-green-500 rounded transform transition duration-200 ease-in-out hover:-translate-y-1 hover:scale-110 w-[400px]"><a href="menu.php">สั่งอาหาร</a></button>
     </div>
+    <!-- <div class=" mt-5">
+        <a href="cart.php?menu_id=<?php echo $row['menu_id']; ?>&act=add">ไม่ใช่</a>
+        <a href="cart.php?menu_id=<?php echo $row['menu_id']; ?>&act=add">ใช่</a>
+        <button class="bg-red-500 hover:bg-red-500 text-white font-bold py-2 px-4 border-b-4 border-red-500 rounded transform transition duration-200 ease-in-out hover:-translate-y-1 hover:scale-110"><a href="menu.php">ไม่ใช่</a></button>
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border-b-4 border-blue-700 rounded transform transition duration-200 ease-in-out hover:-translate-y-1 hover:scale-110"><a href="cart.php?menu_id=<?php echo $row['menu_id']; ?>&act=add">ใช่</a></button>
+    </div> -->
+
+    <!-- <div class=" bg-[#B6F7C1] w-screen h-[150px] mt-10">
+        <tfoot>
+            <tr>
+                <td>
+                    <a href="user_page.php">กลับหน้ารายการสินค้า</a>
+                </td>
+                <td colspan="4" align="right">
+                    <input type="submit" class="btn btn-primary" name="button" id="button" value="อัพเดต" />
+                    <input type="button" class="btn btn-success" name="Submit2" value="สั่งซื้ออาหาร" onclick="window.location='confirm.php';" />
+                </td>
+            </tr>
+        </tfoot>
+
+    </div> -->
 
 
 </body>
