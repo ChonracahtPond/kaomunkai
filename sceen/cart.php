@@ -1,5 +1,12 @@
 <?php
 session_start();
+if ($_SESSION['Userlevel'] != 'M') {  //check session
+
+  Header("Location: logout.php"); //ไม่พบผู้ใช้กระโดดกลับไปหน้า login form 
+
+} else { ?>
+<?php
+// session_start();
 
 $act = isset($_GET['act']) ? $_GET['act'] : '';
 
@@ -48,6 +55,10 @@ if ($act == 'update') {
         <p class=" text-center text-2xl text-[#B6F7C1]">ออเดอร์ของฉัน</p>
         <p class=" text-center"></p>
     </div>
+
+    <p class="text-xl text-white">หมายเลขโต๊ะ <?php echo $_SESSION['UserID']; ?></p>
+
+
 
     <?php
     $total = 0;
@@ -122,3 +133,4 @@ if ($act == 'update') {
 </body>
 
 </html>
+<?php } ?>

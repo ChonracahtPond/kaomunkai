@@ -1,5 +1,12 @@
 <?php
 session_start();
+if ($_SESSION['Userlevel'] != 'M') {  //check session
+
+  Header("Location: logout.php"); //ไม่พบผู้ใช้กระโดดกลับไปหน้า login form 
+
+} else { ?>
+<?php
+// session_start();
 include("../connection.php");
 ?>
 <!DOCTYPE html>
@@ -25,6 +32,7 @@ include("../connection.php");
   </div>
   <!-- nav -->
 
+  <p class="text-xl text-white">หมายเลขโต๊ะ <?php echo $_SESSION['UserID']; ?></p>
 
 
 
@@ -84,3 +92,4 @@ include("../connection.php");
 </body>
 
 </html>
+<?php } ?>

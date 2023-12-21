@@ -12,10 +12,10 @@
         <p> </p>
         <p><b> Login Form </b></p>
         <p> ชื่อผู้ใช้ :
-          <input type="text"   id="Username" required name="Username" placeholder="Username">
+          <input type="text"   user_id="Username" required name="Username" placeholder="Username">
         </p>
         <p>รหัสผ่าน :
-          <input type="password"   id="Password"required name="Password" placeholder="Password">
+          <input type="password"   user_id="Password"required name="Password" placeholder="Password">
         </p>
         <p>
           <button type="submit">Login</button>

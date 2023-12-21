@@ -15,7 +15,7 @@ session_start();
 
                       $row = mysqli_fetch_array($result);
 
-                      $_SESSION["UserID"] = $row["ID"];
+                      $_SESSION["UserID"] = $row["user_id"];
                       $_SESSION["User"] = $row["Firstname"]." ".$row["Lastname"];
                       $_SESSION["Userlevel"] = $row["Userlevel"];
 
