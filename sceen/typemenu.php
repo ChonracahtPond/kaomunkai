@@ -55,7 +55,7 @@ include("../connection.php");
                     while ($menu_row = mysqli_fetch_array($menu_result)) {
                         echo "<a href='ordermenu.php?menu_id=" . $menu_row["menu_id"] . "' class='card-link'>";
                         echo "<div class='mt-5'>";
-                        echo "<div class='flex bg-white mx-auto rounded-lg w-[400px] h-[100px] text-black'>";
+                        echo "<div class='flex bg-white mx-auto rounded-lg w-[95%] h-[100px] text-black'>";
                         echo "<img class='w-[150px] h-[100px] mx-auto' src='../images/ข้าวมันไก่.jpg' alt='' />";
                         echo "<p class='category'>ชื่อ : " . $menu_row["menu_name"] . "</p>";
                         echo "<h6>ราคา : $" . number_format($menu_row["price"], 2) . "</h6>";

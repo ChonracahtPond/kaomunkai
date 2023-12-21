@@ -62,10 +62,10 @@ if ($act == 'update') {
             $total += $sum;
     ?>
             <div class="py-2">
-                <div class="flex bg-white mx-auto rounded-lg w-[400px] h-[150px] " id="menu_<?php echo $menu_id; ?>">
+                <div class="flex bg-white mx-auto rounded-lg w-[95%] h-[150px] " id="menu_<?php echo $menu_id; ?>">
                     <img class="w-[150px] h-[150px]" src="../images/ข้าวมันไก่.jpg" alt="">
                     <div class="card-body d-flex ">
-                        <a class='btn btn-danger text-red-600 ml-48' href='cart.php?menu_id=<?php echo $menu_id; ?>&act=remove'>ยกเลิก</a>
+                        <a class='btn btn-danger text-red-600 ml-40' href='cart.php?menu_id=<?php echo $menu_id; ?>&act=remove'>ยกเลิก</a>
                         <h5 class="card-title"><?php echo $row["menu_name"]; ?></h5>
                         <p class="card-text text-[#B6F7C1]">ราคา : <?php echo number_format($row["price"], 2); ?></p>
                         <p class="card-text">จำนวนจาน:
@@ -88,7 +88,7 @@ if ($act == 'update') {
     </p>
 
     <div class=" mx-auto text-center mt-4">
-        <button class="bg-green-500 hover:bg-green-500 text-white font-bold py-2  border-b-4 border-green-500 rounded transform transition duration-200 ease-in-out hover:-translate-y-1 hover:scale-110 w-[400px]"><a href="menu.php">สั่งอาหาร</a></button>
+        <button class="bg-green-500 hover:bg-green-500 text-white font-bold py-2  border-b-4 border-green-500 rounded transform transition duration-200 ease-in-out hover:-translate-y-1 hover:scale-110 w-screen"> <input type="button" name="Submit2" value="สั่งอาหาร" onclick="window.location='confirm.php';" /></button>
     </div>
     <!-- <div class=" mt-5">
         <a href="cart.php?menu_id=<?php echo $row['menu_id']; ?>&act=add">ไม่ใช่</a>
@@ -111,6 +111,12 @@ if ($act == 'update') {
         </tfoot>
 
     </div> -->
+
+    <!-- <td colspan="4" align="right">
+        <input type="submit" name="button" id="button" value="ปรับปรุง" />
+        <input type="button" name="Submit2" value="สั่งซื้อ" onclick="window.location='confirm.php';" />
+        
+    </td> -->
 
 
 </body>
