@@ -1,3 +1,10 @@
+<?php 
+session_start();
+if ($_SESSION['Userlevel'] !='M'){  //check session
+
+	  Header("Location: logout.php"); //ไม่พบผู้ใช้กระโดดกลับไปหน้า login form 
+
+}else{ ?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -33,7 +40,7 @@
     />
     <div class="absolute bottom-32 text-center">
       <p class="text-[#B6F7C1] text-xl">ขอต้อนรับเข้าสู่ระบบสั่งอาหาร</p>
-      <p class="text-[#B6F7C1] text-xl">หมายเลขโต๊ะ ...</p>
+      <p class=" text-xl">หมายเลขโต๊ะ<?php print_r($_SESSION);?></p>
       <p class="mt-10 text-xl">ร้านข้าวมันไก่น้องกานต์</p>
       <p class="text-sm mt-10">
         ระบบที่จะช่วยทำให้คุณสั่งอาหารง่ายขึ้น เพื่อเพิ่มความสะดวก
@@ -53,5 +60,12 @@
     <!-- <h1 class="text-5xl font-bold underline">
     Hello world!
   </h1> -->
+
+
+
+
+
+
   </body>
 </html>
+<?php } ?>
