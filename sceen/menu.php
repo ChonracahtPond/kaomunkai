@@ -52,7 +52,9 @@ if ($_SESSION['Userlevel'] != 'M') {  //check session
     </div>
     <!-- nav -->
 
-    <p class=" text-xl text-white">หมายเลขโต๊ะ<?php print_r($_SESSION); ?></p>
+    <!-- <p class=" text-xl text-white">หมายเลขโต๊ะ<?php print_r($_SESSION); ?></p> -->
+    <p class="text-xl text-white">หมายเลขโต๊ะ <?php echo $_SESSION['UserID']; ?></p>
+
 
 
     <iframe class="w-screen h-[250px]" src="slider.html" frameborder="0"></iframe>

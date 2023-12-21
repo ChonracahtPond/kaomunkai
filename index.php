@@ -1,12 +1,13 @@
-<?php 
+<?php
 session_start();
-if ($_SESSION['Userlevel'] !='M'){  //check session
+if ($_SESSION['Userlevel'] != 'M') {  //check session
 
-	  Header("Location: logout.php"); //ไม่พบผู้ใช้กระโดดกลับไปหน้า login form 
+  Header("Location: logout.php"); //ไม่พบผู้ใช้กระโดดกลับไปหน้า login form 
 
-}else{ ?>
-<!DOCTYPE html>
-<html>
+} else { ?>
+  <!DOCTYPE html>
+  <html>
+
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -27,20 +28,17 @@ if ($_SESSION['Userlevel'] !='M'){  //check session
       }
     </style>
   </head>
+
   <body class="bg">
     <div>
       <img class="sm: h-[300px]" src="images/logo.png" alt="" srcset="" />
     </div>
 
-    <img
-      class="sm:flex inset-x-0 bottom-0"
-      src="images/gg.png"
-      alt=""
-      srcset=""
-    />
+    <img class="sm:flex inset-x-0 bottom-0" src="images/gg.png" alt="" srcset="" />
     <div class="absolute bottom-32 text-center">
       <p class="text-[#B6F7C1] text-xl">ขอต้อนรับเข้าสู่ระบบสั่งอาหาร</p>
-      <p class=" text-xl">หมายเลขโต๊ะ<?php print_r($_SESSION);?></p>
+      <!-- <p class=" text-xl">หมายเลขโต๊ะ<?php print_r($_SESSION); ?></p> -->
+      <p class="text-xl mt-5 text-red-500">หมายเลขโต๊ะ <?php echo $_SESSION['UserID']; ?></p>
       <p class="mt-10 text-xl">ร้านข้าวมันไก่น้องกานต์</p>
       <p class="text-sm mt-10">
         ระบบที่จะช่วยทำให้คุณสั่งอาหารง่ายขึ้น เพื่อเพิ่มความสะดวก
@@ -67,5 +65,6 @@ if ($_SESSION['Userlevel'] !='M'){  //check session
 
 
   </body>
-</html>
+
+  </html>
 <?php } ?>
