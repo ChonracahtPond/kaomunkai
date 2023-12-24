@@ -1,5 +1,5 @@
 <?php
-	session_start();
+session_start();
     include("../connection.php");
 
 	// Check if the form is submitted
@@ -17,19 +17,7 @@
 		$sql_order = rtrim($sql_order, ", "); // Remove the trailing comma
 		mysqli_query($con, $sql_order);
 
-		// Insert order information into other necessary tables (e.g., customer details, order status, etc.)
 
 		// Clear the shopping cart
 		unset($_SESSION['cart']);
 
-		// Redirect to a confirmation page or any other desired page
-		header("Location: menu.php");
-		exit();
-	}
-	else
-	{
-		// Redirect to the checkout page if the form is not submitted
-		header("Location: checkout.php");
-		exit();
-	}
-?>
