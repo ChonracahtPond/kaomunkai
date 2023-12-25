@@ -7,7 +7,8 @@ $database = "db_food"; // ชื่อฐานข้อมูลที่คุ
 // เชื่อมต่อกับ MySQL
 $conn = new PDO("mysql:host=$host;dbname=db_food", $username, $password);
 // set the PDO error mode to exception
-$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
+
 
 $con= mysqli_connect("localhost","root","","db_food") or die("Error: " . mysqli_error($con));
 mysqli_query($con, "SET NAMES 'utf8' "); 
