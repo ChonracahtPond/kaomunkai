@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -45,44 +46,48 @@
         }
     </style>
 </head>
+
 <body class="bg-gray-100 font-family-karla flex">
 
     <aside class="relative bg-sidebar h-screen w-64 hidden sm:block shadow-xl">
         <div class="p-6">
-            <a href="index.html" class="text-white text-3xl font-semibold uppercase hover:text-gray-300">Admin</a>
-            <button class="w-full bg-white cta-btn font-semibold py-2 mt-5 rounded-br-lg rounded-bl-lg rounded-tr-lg shadow-lg hover:shadow-xl hover:bg-gray-300 flex items-center justify-center">
-                <i class="fas fa-plus mr-3"></i> New Report
-            </button>
+            <a href="index.html.php" class="text-white text-3xl font-semibold uppercase hover:text-gray-300">
+                <img src="../../images/logo.png" alt="" srcset="" />
+            </a>
         </div>
         <nav class="text-white text-base font-semibold pt-3">
-            <a href="index.html" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+            <a href="index.php" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
                 <i class="fas fa-tachometer-alt mr-3"></i>
-                Dashboard
+                หน้าแรก
             </a>
-            <a href="blank.html" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+            <a href="main.php" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+                <i class="fas fa-tachometer-alt mr-3"></i>
+                ข้อมูลสินค้า
+            </a>
+            <a href="blank.php" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
                 <i class="fas fa-sticky-note mr-3"></i>
-                Blank Page
+                ออเดอร์
             </a>
-            <a href="tables.html" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+            <a href="tables.php" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
                 <i class="fas fa-table mr-3"></i>
-                Tables
+                รายงาน
             </a>
-            <a href="forms.html" class="flex items-center active-nav-link text-white py-4 pl-6 nav-item">
+            <a href="forms.php" class="flex items-center active-nav-link text-white py-4 pl-6 nav-item">
                 <i class="fas fa-align-left mr-3"></i>
-                Forms
+                สมาชิก
             </a>
-            <a href="tabs.html" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+            <a href="tabs.php" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
                 <i class="fas fa-tablet-alt mr-3"></i>
-                Tabbed Content
+                คอมเมนต์
             </a>
-            <a href="calendar.html" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+            <!-- <a href="calendar.html" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
                 <i class="fas fa-calendar mr-3"></i>
                 Calendar
-            </a>
+            </a> -->
         </nav>
-        <a href="#" class="absolute w-full upgrade-btn bottom-0 active-nav-link text-white flex items-center justify-center py-4">
+        <a href="../../login/logout.php" class="absolute w-full upgrade-btn bottom-0 active-nav-link text-white flex items-center justify-center py-4">
             <i class="fas fa-arrow-circle-up mr-3"></i>
-            Upgrade to Pro!
+            Logout
         </a>
     </aside>
 
@@ -159,7 +164,7 @@
                 <i class="fas fa-plus mr-3"></i> New Report
             </button> -->
         </header>
-    
+
         <div class="w-full h-screen overflow-x-hidden border-t flex flex-col">
             <main class="w-full flex-grow p-6">
                 <h1 class="w-full text-3xl text-black pb-6">Forms</h1>
@@ -219,7 +224,7 @@
                                 </div>
                                 <div class="inline-block mt-2 -mx-1 pl-1 w-1/2">
                                     <label class="hidden block text-sm text-gray-600" for="cus_email">Zip</label>
-                                    <input class="w-full px-2 py-2 text-gray-700 bg-gray-200 rounded" id="cus_email"  name="cus_email" type="text" required="" placeholder="Zip" aria-label="Email">
+                                    <input class="w-full px-2 py-2 text-gray-700 bg-gray-200 rounded" id="cus_email" name="cus_email" type="text" required="" placeholder="Zip" aria-label="Email">
                                 </div>
                                 <p class="text-lg text-gray-800 font-medium py-4">Payment information</p>
                                 <div class="">
@@ -237,12 +242,12 @@
                     </div>
                 </div>
             </main>
-    
+
             <footer class="w-full bg-white text-right p-4">
                 Built by <a target="_blank" href="https://davidgrzyb.com" class="underline">David Grzyb</a>.
             </footer>
         </div>
-        
+
     </div>
 
     <!-- AlpineJS -->
@@ -250,4 +255,5 @@
     <!-- Font Awesome -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"></script>
 </body>
+
 </html>

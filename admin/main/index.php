@@ -65,7 +65,7 @@ $result = $conn->query($sql);
       </a>
     </div>
     <nav class="text-white text-base font-semibold pt-3">
-      <a href="index.html" class="flex items-center active-nav-link text-white py-4 pl-6 nav-item">
+      <a href="index.php" class="flex items-center active-nav-link text-white py-4 pl-6 nav-item">
         <i class="fas fa-tachometer-alt mr-3"></i>
         หน้าแรก
       </a>
@@ -73,19 +73,19 @@ $result = $conn->query($sql);
         <i class="fas fa-tachometer-alt mr-3"></i>
         ข้อมูลสินค้า
       </a>
-      <a href="blank.html" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+      <a href="blank.php" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
         <i class="fas fa-sticky-note mr-3"></i>
         ออเดอร์
       </a>
-      <a href="tables.html" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+      <a href="tables.php" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
         <i class="fas fa-table mr-3"></i>
         รายงาน
       </a>
-      <a href="forms.html" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+      <a href="forms.php" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
         <i class="fas fa-align-left mr-3"></i>
         สมาชิก
       </a>
-      <a href="tabs.html" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+      <a href="tabs.php" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
         <i class="fas fa-tablet-alt mr-3"></i>
         คอมเมนต์
       </a>
@@ -100,13 +100,7 @@ $result = $conn->query($sql);
     </a>
   </aside>
 
-  <!-- <li class="nav-item border-top mt-auto pt-2">
-        <a class="nav-link" href="logout.php">
-            <i class="bi-box-arrow-left me-2 w3-bar-item w3-button"></i>
-            Logout</strong>
-        </a>
 
-    </li> -->
 
   <div class="w-full flex flex-col h-screen overflow-y-hidden">
     <!-- Desktop Header -->
@@ -139,27 +133,27 @@ $result = $conn->query($sql);
       <nav :class="isOpen ? 'flex': 'hidden'" class="flex flex-col pt-4">
         <a href="main.php" class="flex items-center active-nav-link text-white py-2 pl-4 nav-item">
           <i class="fas fa-tachometer-alt mr-3"></i>
-          Dashboard
+          หน้าแรก
         </a>
         <a href="index.html" class="flex items-center active-nav-link text-white py-2 pl-4 nav-item">
           <i class="fas fa-tachometer-alt mr-3"></i>
-          Dashboard
+          ข้อมูลสินค้า
         </a>
         <a href="blank.html" class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
           <i class="fas fa-sticky-note mr-3"></i>
-          Blank Page
+          ออเดอร์
         </a>
         <a href="tables.html" class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
           <i class="fas fa-table mr-3"></i>
-          Tables
+          รายงาน
         </a>
         <a href="forms.html" class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
           <i class="fas fa-align-left mr-3"></i>
-          Forms
+          สมาชิก
         </a>
         <a href="tabs.html" class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
           <i class="fas fa-tablet-alt mr-3"></i>
-          Tabbed Content
+          คอมเมนต์
         </a>
         <!-- <a href="calendar.html" class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item">
                     <i class="fas fa-calendar mr-3"></i>
@@ -285,7 +279,12 @@ $result = $conn->query($sql);
 
 
           <!-- ขวา -->
-          <div class="bg-white w-[50%] h-[500px] mx-10"></div>
+          <div class="bg-white w-[50%] h-[500px] mx-10 ">
+            <h1 class=" text-center my-10">เมนูขายดี</h1>
+            <div class="text-2xl rounded-md border border-black p-2 flex justify-around bg-[#63686E] h-[100px] w-[90%] mx-auto ">เมนู</div>
+            <div class="text-2xl rounded-md border border-black p-2 flex justify-around bg-[#63686E] h-[100px] w-[90%] mx-auto my-5">เมนู</div>
+            <div class="text-2xl rounded-md border border-black p-2 flex justify-around bg-[#63686E] h-[100px] w-[90%] mx-auto">เมนู</div>
+          </div>
         </div>
       </main>
     </div>

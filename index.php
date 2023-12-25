@@ -2,7 +2,7 @@
 session_start();
 if ($_SESSION['Userlevel'] != 'M') {  //check session
 
-  Header("Location: logout.php"); //ไม่พบผู้ใช้กระโดดกลับไปหน้า login form 
+  Header("Location: login/form_login.php"); //ไม่พบผู้ใช้กระโดดกลับไปหน้า login form 
 
 } else { ?>
   <!DOCTYPE html>
