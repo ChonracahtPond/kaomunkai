@@ -21,7 +21,7 @@ session_start();
 
                       if($_SESSION["Userlevel"]=="A"){ //ถ้าเป็น admin ให้กระโดดไปหน้า admin_page.php
 
-                        Header("Location: admin_page.php");
+                        Header("Location: ../admin/main/admin_page.php");
 
                       }
 
