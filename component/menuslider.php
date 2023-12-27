@@ -20,10 +20,10 @@ if ($_SESSION['Userlevel'] != 'M') {  //check session
             justify-content: space-between;
             align-items: center;
         }
-/* 
-        .owl-item {
+
+        /* .owl-item {
             width: auto;
-          
+         
         }
 
         .owl-carousel img {
@@ -32,15 +32,15 @@ if ($_SESSION['Userlevel'] != 'M') {  //check session
            
         }
 
-    
+      
         .itemok {
             font-size: 50px;
             font-family: sans-serif;
             background-color: limegreen;
             width: 250px;
-        }
+        } */
 
-        .itemok-big {
+        /* .itemok-big {
             width: 500px;
         } */
     </style>

@@ -14,8 +14,16 @@ if ($_SESSION['Userlevel'] != 'M') {  //check session
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
     <title>เมนูอาหาร</title>
-
+    <style>
+      .owl-carousel {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+    </style>
   </head>
 
   <body class="bg-[#373640]">
@@ -32,7 +40,7 @@ if ($_SESSION['Userlevel'] != 'M') {  //check session
           </button>
           <a href="#" class="text-lg font-semibold tracking-widest uppercase rounded-lg dark-mode:text-white focus:outline-none focus:shadow-outline text-[#B6F7C1]">ข้าวมันไก่น้องกาน</a>
           <!-- <img class="h-[70px] " src="../images/logo.png" alt=""> -->
-          <a href="cart.php">
+          <a href="cart.php"><span class="badge">2</span>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-fill" viewBox="0 0 16 16">
               <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2" />
             </svg>
@@ -61,18 +69,57 @@ if ($_SESSION['Userlevel'] != 'M') {  //check session
 
     <div class="text-white flex justify-between mt-4">
       <p class="px-5">เมนู</p>
-      <p class="px-5">ดูทั้งหมด</p>
     </div>
-
-
-    <!-- สไลด์เมนูอาหาร -->
-    <!-- <iframe class="w-screen h-[200px]" src="listmenu.php" frameborder="0"></iframe> -->
-    <!-- สไลด์เมนูอาหาร -->
 
 
 
     <!-- typemenu -->
-    <div class="text-center" style="display: flex; flex-wrap: wrap; justify-content: center;">
+    <div class="owl-carousel" style="display: flex; flex-wrap: wrap; justify-content: center;">
+      <?php
+      include("../connection.php");
+      $sql = "select * from typemenu order by type_id";
+      $result = mysqli_query($con, $sql);
+      while ($row = mysqli_fetch_array($result)) {
+      ?>
+        <div class="my-5 mx-2">
+          <div class="col-sm-6 col-md-6 item">
+            <form action="typemenu.php" method="post">
+              <input type="hidden" name="type_id" value="<?php echo $row["type_id"]; ?>">
+              <button type="submit" class="card-link">
+                <img class="w-48 h-32 mx-auto rounded-md" src="<?php echo $row["type_image"]; ?>" alt="Food Image">
+                <!-- <?php
+                $imagePath = $row["menu_image"];
+                ?>
+                <img class="w-48 h-32 mx-auto rounded-md" src="<?php echo $imagePath; ?>" alt="Food Image"> -->
+              </button>
+              <p class="category text-white text-center mt-2"><?php echo $row["type_name"]; ?></p>
+            </form>
+          </div>
+        </div>
+      <?php
+      }
+      ?>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        $('.owl-carousel').owlCarousel({
+          items: 4,
+          loop: true,
+          margin: 10,
+          autoplay: true,
+          autoWidth: true,
+          autoplayTimeout: 5000,
+          autoplayHoverPause: true,
+          fallbackEasing: 'linear'
+        });
+      });
+    </script>
+
+
+    <!-- <div class="text-center" style="display: flex; flex-wrap: wrap; justify-content: center;">
       <?php
       include("../connection.php");
       $sql = "select * from typemenu order by type_id";
@@ -93,7 +140,7 @@ if ($_SESSION['Userlevel'] != 'M') {  //check session
       <?php
       }
       ?>
-    </div>
+    </div> -->
 
 
 

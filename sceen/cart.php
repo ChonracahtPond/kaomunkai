@@ -72,21 +72,24 @@ if ($_SESSION['Userlevel'] != 'M') {  //check session
                 $sum = floatval($row['price']) * floatval($qty);
                 $total += $sum;
         ?>
+
                 <div class="py-2">
-                    <div class="flex bg-white mx-auto rounded-lg w-[95%] h-[150px] " id="menu_<?php echo $menu_id; ?>">
-                        <img class="w-[150px] h-[150px]" src="../images/ข้าวมันไก่.jpg" alt="">
-                        <div class="card-body d-flex ">
-                            <a class='btn btn-danger text-red-600 ml-40' href='cart.php?menu_id=<?php echo $menu_id; ?>&act=remove'>ยกเลิก</a>
-                            <h5 class="card-title"><?php echo $row["menu_name"]; ?></h5>
-                            <p class="card-text text-red-600">ราคา : <?php echo number_format($row["price"], 2); ?></p>
-                            <p class="card-text">จำนวนจาน:
-                                <input type='text' class='form-control' name='amount[<?php echo $menu_id; ?>]' value='<?php echo $qty; ?>' size='2' />
-                            </p>
-                            <p class="card-text">ราคารวม: <?php echo number_format($sum, 2); ?></p>
+                    <a href="menu_details.php?menu_id=<?php echo $row['menu_id']; ?>">
+                        <div class="flex bg-white mx-auto rounded-lg w-[95%] h-[150px] " id="menu_<?php echo $menu_id; ?>">
+                            <img class="w-[150px] h-[150px]" src="../images/ข้าวมันไก่.jpg" alt="">
+                            <div class="card-body d-flex ">
+                                <a class='btn btn-danger text-red-600 ml-40' href='cart.php?menu_id=<?php echo $menu_id; ?>&act=remove'>ยกเลิก</a>
+                                <h5 class="card-title"><?php echo $row["menu_name"]; ?></h5>
+                                <p class="card-text text-red-600">ราคา : <?php echo number_format($row["price"], 2); ?></p>
+                                <p class="card-text">จำนวนจาน:
+                                    <input type='text' class='form-control' name='amount[<?php echo $menu_id; ?>]' value='<?php echo $qty; ?>' size='2' />
+                                </p>
+                                <p class="card-text">ราคารวม: <?php echo number_format($sum, 2); ?></p>
+
+                            </div>
 
                         </div>
-
-                    </div>
+                    </a>
                 </div>
 
 
