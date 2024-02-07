@@ -159,10 +159,63 @@
 
         <div class="w-full h-screen overflow-x-hidden border-t flex flex-col">
             <main class="w-full flex-grow p-6">
-                <h1 class="w-full text-3xl text-black pb-6">Forms</h1>
+                <h1 class="w-full text-3xl text-black pb-6">ข้อมูลสมาชิก</h1>
 
-             
-                
+                <div class=" border border-black p-2 ">
+                    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+
+                    <table class="min-w-full bg-white border border-gray-300 shadow-lg rounded-md overflow-hidden">
+                        <thead class="bg-gray-200">
+                            <tr>
+                                <th class="py-2 px-4 border-b">ลำดับ</th>
+                                <th class="py-2 px-4 border-b">Username</th>
+                                <th class="py-2 px-4 border-b">ชื่อ</th>
+                                <th class="py-2 px-4 border-b">นามสกุล</th>
+                                <th class="py-2 px-4 border-b">แก้ไข</th>
+                                <th class="py-2 px-4 border-b">ลบ</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            //คิวรี่ข้อมูลมาแสดงในตาราง
+                            require_once '../../connection.php';
+                            $stmt = $conn->prepare("SELECT* FROM user");
+                            $stmt->execute();
+                            $result = $stmt->fetchAll();
+                            foreach ($result as $k) {
+                            ?>
+                                <tr>
+                                    <td class="py-2 px-10 border-b"><?= $k['user_id']; ?></td>
+                                    <td class="py-2 px-10 border-b"><?= $k['Username']; ?></td>
+                                    <td class="py-2 px-10 border-b"><?= $k['Firstname']; ?></td>
+                                    <td class="py-2 px-10 border-b"><?= $k['Lastname']; ?></td>
+                                    <!-- <td class="py-2 px-4 border-b"><img src="../../uploads/<?= $k['images_specialmenu']; ?>" width="70px"></td> -->
+                                    <td class="py-2 px-4 border-b">
+                                        <a href="edit/formEdituser.php?user_id=<?= $k['user_id']; ?>" class="text-blue-500 hover:underline">แก้ไข</a>
+
+                                       
+                                    </td>
+                                    <td class="py-2 px-4 border-b">
+                                        <!-- <a href="menu/deletespecialmenu.php.php?user_id=<?= $k['user_id']; ?>" class="text-red-500 hover:underline" onclick="return confirm('ยืนยันการลบข้อมูล !!');">ลบ</a> -->
+                                        <a href="user/deluser.php?user_id=<?= $k['user_id']; ?>" class="text-red-500 hover:underline" onclick="return confirm('ยืนยันการลบข้อมูล !!');">ลบ</a>
+
+                                    </td>
+                                </tr>
+                            <?php } ?>
+                        </tbody>
+                    </table>
+
+
+
+
+
+
+
+
+
+
+                </div>
+
             </main>
 
             <footer class="w-full bg-white text-right p-4">
