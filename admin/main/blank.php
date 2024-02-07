@@ -76,14 +76,6 @@
                 <i class="fas fa-align-left mr-3"></i>
                 สมาชิก
             </a>
-            <a href="tabs.php" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
-                <i class="fas fa-tablet-alt mr-3"></i>
-                คอมเมนต์
-            </a>
-            <!-- <a href="calendar.html" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
-                <i class="fas fa-calendar mr-3"></i>
-                Calendar
-            </a> -->
         </nav>
         <a href="../../login/logout.php" class="absolute w-full upgrade-btn bottom-0 active-nav-link text-white flex items-center justify-center py-4">
             <i class="fas fa-arrow-circle-up mr-3"></i>
@@ -165,17 +157,73 @@
             </button> -->
         </header>
 
-        <div class="w-full h-screen overflow-x-hidden border-t flex flex-col">
-            <main class="w-full flex-grow p-6">
-                <h1 class="text-3xl text-black pb-6">Blank Page</h1>
+        <div class="w-full h-screen overflow-x-hidden border-t flex flex-col bg-white">
+                <main class="w-full flex-grow p-6">
+                    <h1 class="text-3xl text-black pb-6">ออเดอร์ </h1>
+                    <div class=" border border-black p-2 ">
+                        <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
 
-                <!-- Content goes here! 😁 -->
-            </main>
+                        <table class="min-w-full bg-white border border-gray-300 shadow-lg rounded-md overflow-hidden">
+                            <thead class="bg-gray-200">
+                                <tr>
+                                    <th class="py-2 px-4 border-b">ลำดับ</th>
+                                    <th class="py-2 px-4 border-b">เมนู</th>
+                                    <th class="py-2 px-4 border-b">จำนวน</th>
+                                    <th class="py-2 px-4 border-b">ราคารวมทั้งสิ้น</th>
+                                    <th class="py-2 px-4 border-b">วันที่</th>
+                                    <th class="py-2 px-4 border-b">ผู็สั่ง</th>
+                                    <th class="py-2 px-4 border-b">รายละเอียด</th>
+                                    <th class="py-2 px-4 border-b">แก้ไข</th>
+                                    <th class="py-2 px-4 border-b">ลบ</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                //คิวรี่ข้อมูลมาแสดงในตาราง
+                                require_once '../../connection.php';
+                                $stmt = $conn->prepare("SELECT* FROM orderdetail");
+                                $stmt->execute();
+                                $result = $stmt->fetchAll();
+                                foreach ($result as $k) {
+                                ?>
+                                    <tr>
+                                        <td class="py-2 px-4 border-b"><?= $k['order_id']; ?></td>
+                                        <td class="py-2 px-4 border-b"><?= $k['menu_id']; ?></td>
+                                        <td class="py-2 px-4 border-b"><?= $k['quantity']; ?></td>
+                                        <td class="py-2 px-4 border-b"><?= $k['total_price']; ?></td>
+                                        <td class="py-2 px-4 border-b"><?= $k['order_date']; ?></td>
+                                        <td class="py-2 px-4 border-b"><?= $k['user_id']; ?></td>
+                                        <td class="py-2 px-4 border-b"><?= $k['detail']; ?></td>
+                                        <td class="py-2 px-4 border-b">
+                                            <a href="formEditpet.php?order_id=<?= $k['order_id']; ?>" class="text-blue-500 hover:underline">แก้ไข</a>
+                                        </td>
+                                        <td class="py-2 px-4 border-b">
+                                            <a href="del.php?order_id=<?= $k['order_id']; ?>" class="text-red-500 hover:underline" onclick="return confirm('ยืนยันการลบข้อมูล !!');">ลบ</a>
+                                        </td>
+                                    </tr>
+                                <?php } ?>
+                            </tbody>
+                        </table>
 
-            <footer class="w-full bg-white text-right p-4">
-                Built by <a target="_blank" href="https://davidgrzyb.com" class="underline">David Grzyb</a>.
-            </footer>
-        </div>
+
+
+
+
+
+
+
+
+
+                    </div>
+
+
+
+
+
+
+                </main>
+
+            </div>
 
     </div>
 

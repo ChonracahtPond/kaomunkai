@@ -107,11 +107,11 @@ if ($_SESSION['Userlevel'] != 'M') {  //check session
         <div class=" mx-auto text-center mt-4">
             <button class="bg-green-500 hover:bg-green-500 text-white font-bold py-2  border-b-4 border-green-500 rounded transform transition duration-200 ease-in-out hover:-translate-y-1 hover:scale-110 w-screen"> <input type="button" name="Submit2" value="สั่งอาหาร" onclick="window.location='confirm.php';" /></button>
         </div>
+      
 
 
 
-
-
+        
     </body>
 
     </html>

@@ -85,14 +85,7 @@ $result = $conn->query($sql);
         <i class="fas fa-align-left mr-3"></i>
         สมาชิก
       </a>
-      <a href="tabs.php" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
-        <i class="fas fa-tablet-alt mr-3"></i>
-        คอมเมนต์
-      </a>
-      <!-- <a href="calendar.html" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
-                <i class="fas fa-calendar mr-3"></i>
-                Calendar
-            </a> -->
+
     </nav>
     <a href="../../login/logout.php" class="absolute w-full upgrade-btn bottom-0 active-nav-link text-white flex items-center justify-center py-4">
       <i class="fas fa-arrow-circle-up mr-3"></i>
@@ -180,18 +173,33 @@ $result = $conn->query($sql);
             </button> -->
     </header>
 
+
+
     <div class="w-full overflow-x-hidden border-t flex flex-col">
       <main class="w-full flex-grow p-6">
         <h1 class="text-3xl text-black pb-6">หน้าแรก</h1>
 
-        <div class="flex mx-auto my-auto">
+     
+       <!-- <div class=" flex"> 
+        <div class=" bg-slate-300 w-[50%] mx-10 rounded-red-500">
+            <p class=" text-center">เมนูทั้งหมดในร้าน</p>
+          </div>
+          <div class="bg-slate-300 w-[50%]  mx-10 rounded-red-500">
+          <p class=" text-center">2</p>
+          </div>
+          <div class="bg-slate-300 w-[50%]  mx-10 rounded-red-500">
+          <p class=" text-center">3</p>
+          </div>
+          <div class="bg-slate-300 w-[50%]  mx-10 rounded-red-500">
+          <p class=" text-center">4</p>
+          </div>
+        </div> -->
+
+
+
+        <div class="flex mx-auto my-auto mt-5">
           <div class="bg-white w-[50%] h-[500px] mx-10 rounded-red-500">
-            <h2>ข้อมูล</h2>
-            <form action="upload.php" method="post" enctype="multipart/form-data">
-              <input type="file" name="image" id="image" accept="image/*" />
-              <br />
-              <input type="submit" value="Upload Image" />
-            </form>
+
 
             <div class="text-2xl rounded-md border border-black p-2 flex justify-around ">
               <p>โลโก้</p>
@@ -216,63 +224,9 @@ $result = $conn->query($sql);
               </div>
 
             </div>
-            <div class="text-2xl rounded-md border border-black p-2 flex justify-around ">
-              <p>โลโก้</p>
-              <div class=" w-[200px] h-[200px] mx-auto my-auto">
-                <?php
-                // ตรวจสอบว่ามีข้อมูลที่ถูกคืนมาหรือไม่
-                if ($result->rowCount() > 1) {
-                  // วนลูปแสดงข้อมูลทุกรายการ
-                  while ($row = $result->fetch()) {
-                    echo '<div class="text-2xl rounded-md border border-black p-2 flex">';
-                    echo '<img src="' . $row['imagesbannerPath'] . '" alt="' . $row['imagesbannerName'] . '">';
-                    // echo '<p>' . $row['ImageName'] . '</p>';
-                    echo '</div>';
-                  }
-                } else {
-                  echo "No images found.";
-                }
-
-                // ปิดการเชื่อมต่อฐานข้อมูล
-                $conn = null;
-                ?>
-              </div>
-
-            </div>
-
-
-            <p class=" mt-5">แบนเนอร์</p>
-            <div class="text-2xl rounded-md border border-black p-2 flex justify-around ">
-
-              <div class=" w-[200px] h-[200px] mx-auto my-auto">
-               
-              
-                  <?php
-                  // ตรวจสอบว่ามีข้อมูลที่ถูกคืนมาหรือไม่
-                  if ($result->rowCount() > 0) {
-                    // วนลูปแสดงข้อมูลทุกรายการ
-                    while ($row = $result->fetch()) {
-                      echo '<div class="text-2xl rounded-md border border-black p-2 flex">';
-                      echo '<img src="' . $row['ImagePath'] . '" alt="' . $row['ImageName'] . '">';
-                      // echo '<p>' . $row['ImageName'] . '</p>';
-                      echo '</div>';
-                    }
-                  } else {
-                    echo "No images found.";
-                  }
-
-                  // ปิดการเชื่อมต่อฐานข้อมูล
-                  $conn = null;
-                  ?>
-     
 
 
 
-
-
-
-              </div>
-            </div>
           </div>
 
 
@@ -280,10 +234,58 @@ $result = $conn->query($sql);
 
           <!-- ขวา -->
           <div class="bg-white w-[50%] h-[500px] mx-10 ">
-            <h1 class=" text-center my-10">เมนูขายดี</h1>
-            <div class="text-2xl rounded-md border border-black p-2 flex justify-around bg-[#63686E] h-[100px] w-[90%] mx-auto ">เมนู</div>
-            <div class="text-2xl rounded-md border border-black p-2 flex justify-around bg-[#63686E] h-[100px] w-[90%] mx-auto my-5">เมนู</div>
-            <div class="text-2xl rounded-md border border-black p-2 flex justify-around bg-[#63686E] h-[100px] w-[90%] mx-auto">เมนู</div>
+            <h1 class=" text-center my-10 text-2xl">เมนูขายดี</h1>
+            <div class="overflow-x-auto">
+              <table class="min-w-full divide-y divide-gray-200">
+                <thead class="bg-gray-50">
+                  <tr>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Menu ID
+                    </th>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Menu Name
+                    </th>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Total Quantity Sold
+                    </th>
+                  </tr>
+                </thead>
+                <tbody class="bg-white divide-y divide-gray-200">
+                  <?php
+                  include("../../connection.php");
+
+                  // Check connection
+                  if ($con->connect_error) {
+                    die("Connection failed: " . $con->connect_error);
+                  }
+
+                  // SQL query to find the best-selling menu items
+                  $sql = "SELECT m.menu_id, m.menu_name, SUM(od.quantity) AS total_quantity_sold
+                        FROM orderdetail od
+                        JOIN menu m ON od.menu_id = m.menu_id
+                        GROUP BY m.menu_id, m.menu_name
+                        ORDER BY total_quantity_sold DESC";
+
+                  $result = $con->query($sql);
+
+                  if ($result->num_rows > 0) {
+                    // Output data of each row
+                    while ($row = $result->fetch_assoc()) {
+                      echo "<tr>";
+                      echo "<td class='px-6 py-4 whitespace-nowrap'>" . $row["menu_id"] . "</td>";
+                      echo "<td class='px-6 py-4 whitespace-nowrap'>" . $row["menu_name"] . "</td>";
+                      echo "<td class='px-6 py-4 whitespace-nowrap'>" . $row["total_quantity_sold"] . "</td>";
+                      echo "</tr>";
+                    }
+                  } else {
+                    echo "<tr><td colspan='3' class='px-6 py-4 whitespace-nowrap text-center'>No results found.</td></tr>";
+                  }
+
+                  $con->close();
+                  ?>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </main>
@@ -297,83 +299,7 @@ $result = $conn->query($sql);
   <!-- ChartJS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" integrity="sha256-R4pqcOYV8lt7snxMQO/HSbVCFRPMdrhAFMH+vr9giYI=" crossorigin="anonymous"></script>
 
-  <script>
-    var chartOne = document.getElementById("chartOne");
-    var myChart = new Chart(chartOne, {
-      type: "bar",
-      data: {
-        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-        datasets: [{
-          label: "# of Votes",
-          data: [12, 19, 3, 5, 2, 3],
-          backgroundColor: [
-            "rgba(255, 99, 132, 0.2)",
-            "rgba(54, 162, 235, 0.2)",
-            "rgba(255, 206, 86, 0.2)",
-            "rgba(75, 192, 192, 0.2)",
-            "rgba(153, 102, 255, 0.2)",
-            "rgba(255, 159, 64, 0.2)",
-          ],
-          borderColor: [
-            "rgba(255, 99, 132, 1)",
-            "rgba(54, 162, 235, 1)",
-            "rgba(255, 206, 86, 1)",
-            "rgba(75, 192, 192, 1)",
-            "rgba(153, 102, 255, 1)",
-            "rgba(255, 159, 64, 1)",
-          ],
-          borderWidth: 1,
-        }, ],
-      },
-      options: {
-        scales: {
-          yAxes: [{
-            ticks: {
-              beginAtZero: true,
-            },
-          }, ],
-        },
-      },
-    });
 
-    var chartTwo = document.getElementById("chartTwo");
-    var myLineChart = new Chart(chartTwo, {
-      type: "line",
-      data: {
-        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-        datasets: [{
-          label: "# of Votes",
-          data: [12, 19, 3, 5, 2, 3],
-          backgroundColor: [
-            "rgba(255, 99, 132, 0.2)",
-            "rgba(54, 162, 235, 0.2)",
-            "rgba(255, 206, 86, 0.2)",
-            "rgba(75, 192, 192, 0.2)",
-            "rgba(153, 102, 255, 0.2)",
-            "rgba(255, 159, 64, 0.2)",
-          ],
-          borderColor: [
-            "rgba(255, 99, 132, 1)",
-            "rgba(54, 162, 235, 1)",
-            "rgba(255, 206, 86, 1)",
-            "rgba(75, 192, 192, 1)",
-            "rgba(153, 102, 255, 1)",
-            "rgba(255, 159, 64, 1)",
-          ],
-          borderWidth: 1,
-        }, ],
-      },
-      options: {
-        scales: {
-          yAxes: [{
-            ticks: {
-              beginAtZero: true,
-            },
-          }, ],
-        },
-      },
-    });
-  </script>
 </body>
 
 </html>
